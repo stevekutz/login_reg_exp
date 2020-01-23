@@ -3,8 +3,13 @@ import React from 'react';
 // import './App.css';
 import {Tabs, TabItem} from './comp/TabItem';
 
+ // node-sass -v    // 4.13.1
+
+
 
 function App() {
+
+
   return (
     <div className="App">
         <Tabs defaultIndex="1" onTabClick={console.log}>
