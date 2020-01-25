@@ -23,7 +23,7 @@ export class Register extends React.Component {
                         <label htmlFor = "username">Email</label>
                         <input type = "text" name = "email" placeholder = "email"/>
                     </div>
-                        <div>
+                        <div className = "form-group">
                             <label htmlFor = "password">Password</label>
                             <input type = "password" name = "password" placeholder = "password"/>
                         </div>
