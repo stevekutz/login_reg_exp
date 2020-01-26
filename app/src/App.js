@@ -30,8 +30,8 @@ class App extends React.Component {
 
     render() {
         const {isLogginActive} = this.state;
-                                            //  we set up a reference to the container  div 
-        return (                            // this will verify current reference for transition effects
+                                            //  we set up a container ref to the div element 
+        return (                            // this will verify current element for transition effects
             <div className = "App">
                 <div className = "login">  
                     <div className = "container"></div>
