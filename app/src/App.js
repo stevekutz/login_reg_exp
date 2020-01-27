@@ -4,11 +4,6 @@ import React from 'react';
 // import {Tabs, TabItem} from './comp/tab/TabItem';
 import "./App.scss";
 import {Login, Register} from './comp/login/index';
-//import {Login, Register} from './components/login/index';
-
- // node-sass -v    // 4.13.1
-
-
 
 class App extends React.Component {
     constructor(props) {
