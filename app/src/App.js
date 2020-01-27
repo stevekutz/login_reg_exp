@@ -2,6 +2,7 @@ import React from 'react';
 // import logo from './logo.svg';
 // import './App.css';
 // import {Tabs, TabItem} from './comp/tab/TabItem';
+import "./App.scss";
 import {Login, Register} from './comp/login/index';
 
  // node-sass -v    // 4.13.1
