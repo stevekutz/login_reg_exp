@@ -21,12 +21,20 @@ class App extends React.Component {
     //     this.rightSide.classList.add("right");
     // }
 
-    // changeState() {
-    //     const {isLogginActive} = this.state;
+    changeState() {
+        const {isLogginActive} = this.state;
+
+        // show right side transition
+        if (isLogginActive) {
+            this.Side.classList.remove("right");
+            this.Side.classList.add("left");
+        } else {
+            this.Side.clasList.remove("left");
+            this.Side.classList.add("right");
+        }
 
 
-
-    // }
+    }
 
     render() {
         const {isLogginActive} = this.state;
@@ -49,7 +57,7 @@ class App extends React.Component {
                     current = {current}
                     currentActive = {currentActive}
                     containerRef = {ref => (this.Side = ref)}
-                    // onClick = {this.changeState.bind(this)}                
+                    onClick = {this.changeState.bind(this)}                
                 />
 
             </div>
