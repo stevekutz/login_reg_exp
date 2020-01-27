@@ -4,6 +4,7 @@ import React from 'react';
 // import {Tabs, TabItem} from './comp/tab/TabItem';
 import "./App.scss";
 import {Login, Register} from './comp/login/index';
+//import {Login, Register} from './components/login/index';
 
  // node-sass -v    // 4.13.1
 
@@ -18,22 +19,24 @@ class App extends React.Component {
 
     }
 
-    // componentDidMount() {
-    //     this.rightSide.classList.add("right");
-    // }
+    componentDidMount() {
+        this.rightSide.classList.add("right");
+    }
 
     changeState() {
         const {isLogginActive} = this.state;
 
         // show right side transition
         if (isLogginActive) {
-            this.Side.classList.remove("right");
-            this.Side.classList.add("left");
+            this.rightSide.classList.remove("right");
+            this.rightSide.classList.add("left");
         } else {
-            this.Side.clasList.remove("left");
-            this.Side.classList.add("right");
+            this.rightSide.classList.remove("left");
+            this.rightSide.classList.add("right");
         }
 
+        // toggle betwen states
+        this.setState(prevState => ({ isLogginActive: !prevState.isLogginActive}));   
 
     }
 
@@ -46,22 +49,21 @@ class App extends React.Component {
         return (                            // this will verify current element for transition effects
             <div className = "App">
                 <div className = "login">  
-                    <div className = "container"></div>
-                        {isLogginActive && <Login containerRef = {(ref) => this.current = ref} />}
-                        {!isLogginActive && <Register containerRef = {(ref) => this.current = ref} />}
-                
-
-                
-                </div>
+                    <div className = "container" ref = {ref => (this.container = ref)}>
+                        {isLogginActive && 
+                            (<Login containerRef = {(ref) => this.current = ref} />)}
+                        {!isLogginActive && 
+                            (<Register containerRef = {(ref) => this.current = ref} />)}               
+                    </div> 
 
                 <Side
                     current = {current}
                     currentActive = {currentActive}
-                    containerRef = {ref => (this.Side = ref)}
+                    containerRef = {ref => (this.rightSide = ref)}
                     onClick = {this.changeState.bind(this)}                
                 />
-
-            </div>
+               </div>
+           </div>
         )
     }
 }
@@ -77,25 +79,7 @@ const Side = props => {
                 <div className = 'text'>{props.current}</div>
             </div>
         </div>
-    )
-}
-
-
-export default App;
-
-
-
-/* 
-function App() {
-    
-
-  return (
-    <div className="App">
-        <Login/>
-    </div>
-  );
-}
+    );
+};
 
 export default App;
-
-*/
